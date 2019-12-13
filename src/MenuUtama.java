@@ -35,11 +35,17 @@ public class MenuUtama {
         bProses.setBounds(100,170,100,40);
         bOutput.setBounds(100,220,100,40);
 
+        aksiBInput();
+
+    }
+
+    void aksiBInput(){
         bInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 MenuInput menuInput = new MenuInput();
+                frame.setVisible(false);
             }
         });
     }
