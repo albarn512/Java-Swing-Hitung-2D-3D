@@ -36,6 +36,7 @@ public class MenuUtama {
         bOutput.setBounds(100,220,100,40);
 
         aksiBInput();
+        aksiBtnProcess();
 
     }
 
@@ -46,6 +47,15 @@ public class MenuUtama {
 
                 MenuInput menuInput = new MenuInput();
                 frame.setVisible(false);
+            }
+        });
+    }
+
+    void aksiBtnProcess() {
+        bProses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

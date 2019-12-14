@@ -5,25 +5,29 @@ import java.awt.event.ActionListener;
 
 public class MenuInput {
     //membuat frame
-    JFrame frame = new JFrame("Menu Input");
+    private JFrame frame = new JFrame("Menu Input");
 
     //membuat komponen
-    JButton bInput = new JButton("INPUT");
-    JButton bBack = new JButton("BACK");
-    JLabel ljudul = new JLabel("MENU INPUT");
-    JLabel lData = new JLabel("Banyak Data :");
-    JTextField tfData = new JTextField();
-    JScrollPane jSP;
+    private JButton bInput = new JButton("INPUT");
+    private JButton bBack = new JButton("BACK");
+    private JLabel ljudul = new JLabel("MENU INPUT");
+    private JLabel lData = new JLabel("Banyak Data :");
+    private JTextField tfData = new JTextField();
+    private JScrollPane jSP;
+
+    private String sisi, panjang, lebar, tinggi, jariJari;
 
     DefaultTableModel model;
     JTable table;
+
     public MenuInput(){
         initComponent();
     }
+
     void initComponent(){
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setSize(300,450);
+        frame.setSize(450,550);
         frame.setDefaultCloseOperation(3);
 
         //Set Column
@@ -61,7 +65,18 @@ public class MenuInput {
         bInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //input random data then import to file.
+                int max = 100;
+                int min = 1;
+                int range = max - min + 1;
+
+                for(int i=0; i<Integer.parseInt(tfData.getText()); i++) {
+                    sisi = String.valueOf((Math.random() * range) + min);
+                    panjang = String.valueOf((Math.random() * range) + min);
+                    lebar = String.valueOf((Math.random() * range) + min);
+                    tinggi = String.valueOf((Math.random() * range) + min);
+                    jariJari = String.valueOf((Math.random() * range) + min);
+                    model.insertRow(model.getRowCount(), new Object[] {sisi, panjang, lebar, tinggi, jariJari});
+                }
             }
         });
     }
@@ -74,5 +89,9 @@ public class MenuInput {
                 frame.setVisible(false);
             }
         });
+    }
+
+    public DefaultTableModel getModel() {
+        return model;
     }
 }
