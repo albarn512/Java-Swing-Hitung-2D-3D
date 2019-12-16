@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class MenuUtama {
     //membuat frame
@@ -48,6 +50,23 @@ public class MenuUtama {
 
                 MenuInput menuInput = new MenuInput();
                 frame.setVisible(false);
+
+                File file = new File("tabel.txt");
+
+                try {
+                    if(file.createNewFile()) {
+                        System.out.println("File created : " + file.getName());
+                    } else {
+                        System.out.println("File already exists");
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                if(menuInput.getBanyakData() != 0) {
+                    String dataTable[][] = menuInput.tampilTabel();
+                    menuInput.table.setModel(new JTable(dataTable, menuInput.kolom).getModel());
+                }
             }
         });
     }
