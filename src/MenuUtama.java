@@ -55,7 +55,8 @@ public class MenuUtama {
         bProses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                MenuProses menuProses = new MenuProses();
+                frame.setVisible(false);
             }
         });
     }
