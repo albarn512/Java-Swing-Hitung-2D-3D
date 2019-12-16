@@ -20,24 +20,25 @@ public class MenuUtama {
     void initComponent(){
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setSize(300,450);
+        frame.setSize(450,550);
         frame.setDefaultCloseOperation(3);
 
         //menambahkan koponen kedalam frame
         frame.add(ljudul);
+            ljudul.setFont(new Font("Serif",Font.BOLD,20));
         frame.add(bInput);
         frame.add(bProses);
         frame.add(bOutput);
 
         //mengatur letak komponen
-        ljudul.setBounds(100,10,100,20);
-        bInput.setBounds(100,120,100,40);
-        bProses.setBounds(100,170,100,40);
-        bOutput.setBounds(100,220,100,40);
+        ljudul.setBounds(150,20,200,20);
+        bInput.setBounds(170,150,100,40);
+        bProses.setBounds(170,210,100,40);
+        bOutput.setBounds(170,270,100,40);
 
         aksiBInput();
         aksiBtnProcess();
-
+        aksiBOutput();
     }
 
     void aksiBInput(){
@@ -56,6 +57,17 @@ public class MenuUtama {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MenuProses menuProses = new MenuProses();
+                frame.setVisible(false);
+            }
+        });
+    }
+
+    void aksiBOutput(){
+        bOutput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                MenuOutput menuOutput = new MenuOutput();
                 frame.setVisible(false);
             }
         });

@@ -2,16 +2,14 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-public class MenuProses {
+public class MenuOutput {
     //membuat frame
-    private JFrame frame = new JFrame("Menu Proses");
+    private JFrame frame = new JFrame("Menu Output");
 
     //membuat komponen
-    private JButton bProcess = new JButton("PROCESS");
+    private JButton bOutput = new JButton("OUTPUT");
     private JButton bBack = new JButton("BACK");
-    private JLabel ljudul = new JLabel("MENU INPUT");
-    private JTextField tfData = new JTextField();
+    private JLabel ljudul = new JLabel("MENU OUTPUT");
     private JScrollPane jSP;
 
     private String sisi, panjang, lebar, tinggi, jariJari;
@@ -19,7 +17,7 @@ public class MenuProses {
     DefaultTableModel model;
     JTable table;
 
-    public MenuProses(){
+    public MenuOutput(){
         initComponent();
     }
 
@@ -32,7 +30,7 @@ public class MenuProses {
         //Set Column
         String[] kolom = {"Sisi","Panjang","Lebar","Tinggi","Jari-jari"};
 
-        //data table ngambil dari MenuInput
+        //data table akan keluar hasil proses yaitu luas, keliling, volume dari bangun
         //Initializing JTable
         model = new DefaultTableModel(kolom,0);
         table = new JTable(model); //masih menggunakan data statis
@@ -41,21 +39,20 @@ public class MenuProses {
 
         //menambahkan koponen kedalam frame
         frame.add(ljudul);
-        frame.add(bProcess);
+        frame.add(bOutput);
         frame.add(bBack);
-        frame.add(tfData);
         frame.add(jSP);
 
         //mengatur letak komponen
         ljudul.setBounds(100,10,100,20);
-        bProcess.setBounds(140,60,90,20);
+        bOutput.setBounds(140,60,90,20);
         bBack.setBounds(185,390,90,20);
         jSP.setBounds(5,90,280,300);
 
         jSP.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         aksiBBack();
-        aksiBProcess();
+        aksiBOutput();
     }
 
     void  aksiBBack(){
@@ -68,16 +65,13 @@ public class MenuProses {
         });
     }
 
-    void  aksiBProcess(){
-        bProcess.addActionListener(new ActionListener() {
+    void  aksiBOutput(){
+        bOutput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //tanpa tabel. cuma munculin pop up. tau multi threading nya dari sout aja.
-                //System.out.println("blablabla");
-                JOptionPane.showMessageDialog(null, "DATA SUDAH TERPROSES");
+                MenuUtama menuUtama = new MenuUtama();
+                frame.setVisible(false);
             }
         });
     }
-
-
 }
