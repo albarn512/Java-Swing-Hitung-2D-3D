@@ -9,12 +9,9 @@ public class MenuOutput {
     //membuat komponen
     private JButton bBack = new JButton("BACK");
     private JLabel ljudul = new JLabel("MENU OUTPUT");
-    private JLabel lKeliling = new JLabel("Data Keliling");
     private JLabel lLuas = new JLabel("Data Luas");
     private JLabel lVolume = new JLabel("Data Volume");
     private JScrollPane jSPKeliling,jSPLuas,jSPVolume;
-
-    private String persegi, persegiPanjang, segiTiga,trapesium,layangLayang,belahKetupat,jajarGenjang;
 
     DefaultTableModel modelKeliling, modelLuas, modelVolume;
     JTable tableKeliling, tableLuas, tableVolume;
@@ -35,9 +32,6 @@ public class MenuOutput {
         String[] kolomVolume ={"Kubus","Balok","Tabung","Kerucut","Bola","PrismaSegi3","LimasSegi3","LimasSegi4"};
         //data table akan keluar hasil proses yaitu luas, keliling, volume dari bangun
         //Initializing JTable
-        modelKeliling = new DefaultTableModel(kolomKeliling,0);
-        tableKeliling = new JTable(modelKeliling);
-        jSPKeliling = new JScrollPane(tableKeliling);
 
         modelLuas = new DefaultTableModel(kolomLuas,0);
         tableLuas = new JTable(modelLuas);
@@ -49,25 +43,20 @@ public class MenuOutput {
 
         //menambahkan koponen kedalam frame
         frame.add(ljudul);
-        frame.add(lKeliling);
         frame.add(lLuas);
         frame.add(lVolume);
         frame.add(bBack);
-        frame.add(jSPKeliling);
         frame.add(jSPLuas);
         frame.add(jSPVolume);
 
         //mengatur letak komponen
         ljudul.setBounds(220,10,100,20);
         bBack.setBounds(440,530,90,20);
-        lKeliling.setBounds(20,60,100,15);
-        jSPKeliling.setBounds(20,80,580,110);
-        lLuas.setBounds(20,210,100,15);
-        jSPLuas.setBounds(20,230,580,110);
-        lVolume.setBounds(20,360,100,15);
-        jSPVolume.setBounds(20,380,580,110);
+        lLuas.setBounds(20,50,100,15);
+        jSPLuas.setBounds(20,70,580,210);
+        lVolume.setBounds(20,290,100,15);
+        jSPVolume.setBounds(20,310,580,210);
 
-        jSPKeliling.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jSPLuas.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jSPVolume.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 

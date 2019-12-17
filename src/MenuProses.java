@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuProses {
+    DuaDimensi duaDimensi;
     //membuat frame
     private JFrame frame = new JFrame("Menu Proses");
 

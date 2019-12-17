@@ -4,14 +4,25 @@ import java.util.Scanner;
 
 public class DuaDimensi {
 
-    protected Float[] sisi, panjang, lebar, tinggi, jariJari,diagonal1, diagonal2;
+    protected double[] sisi, panjang, lebar, tinggi, jariJari,diagonal1, diagonal2;
     private File file = new File("tabel.txt");
     public DuaDimensi(){
         getBanyakData();
         getData();
-        
+        hitungLuas();
     }
-
+    void hitungLuas(){
+        for (int i=0;i<sisi.length;i++) {
+            luasLayang(diagonal1[i], diagonal2[i]);
+            luasPersegi(sisi[i]);
+            luasBelahKetupat(diagonal1[i], diagonal2[i]);
+            luasJajarGenjang(panjang[i], tinggi[i]);
+            luasPersegiPanjang(panjang[i], lebar[i]);
+            luasLingkaran(jariJari[i]);
+            luasTrapesium(panjang[i], tinggi[i], lebar[i]);
+            luasSegitiga(panjang[i], tinggi[i]);
+        }
+    }
     public int getBanyakData() {
         int a = 0;
 
@@ -44,13 +55,13 @@ public class DuaDimensi {
                 data[i][5] = String.valueOf(scanner.next());
                 data[i][6] = String.valueOf(scanner.next());
 
-                panjang[i] = Float.parseFloat(data[i][0]);
-                sisi[i] = Float.parseFloat(data[i][1]);
-                lebar[i] = Float.parseFloat(data[i][2]);
-                tinggi[i] = Float.parseFloat(data[i][3]);
-                jariJari[i] = Float.parseFloat(data[i][4]);
-                diagonal1[i] = Float.parseFloat(data[i][5]);
-                diagonal2[i] = Float.parseFloat(data[i][6]);
+                panjang[i] = Double.parseDouble(data[i][0]);
+                sisi[i] = Double.parseDouble(data[i][1]);
+                lebar[i] = Double.parseDouble(data[i][2]);
+                tinggi[i] = Double.parseDouble(data[i][3]);
+                jariJari[i] = Double.parseDouble(data[i][4]);
+                diagonal1[i] = Double.parseDouble(data[i][5]);
+                diagonal2[i] = Double.parseDouble(data[i][6]);
 
                 i++;
             }
@@ -60,6 +71,38 @@ public class DuaDimensi {
         }
     }
 
-
+    public double luasLayang(double diagonal1, double diagonal2){
+        double luas = diagonal1 * diagonal2;
+        return luas;
+    }
+    public double luasPersegi(double sisi){
+        double luas = sisi*sisi;
+        System.out.println(luas);
+        return  luas;
+    }
+    public double luasBelahKetupat(double diagonal1, double diagonal2){
+        double luas = diagonal1 * diagonal2/2;
+        return luas;
+    }
+    public double luasJajarGenjang(double panjang, double tinggi){
+        double luas = panjang * tinggi;
+        return luas;
+    }
+    public double luasPersegiPanjang(double panjang, double lebar){
+        double luas = panjang*lebar;
+        return  luas;
+    }
+    public double luasLingkaran(double jariJari){
+        double luas = jariJari*jariJari*3.14/2;
+        return luas;
+    }
+    public double luasTrapesium(double alas, double tinggi, double atap){
+        double luas =(alas+atap)*tinggi/2;
+        return luas;
+    }
+    public double luasSegitiga(double alas, double tinggi){
+        double luas = alas*tinggi/2;
+        return luas;
+    }
 
 }
