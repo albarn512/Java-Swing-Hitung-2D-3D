@@ -10,14 +10,8 @@ public class MenuProses {
     //membuat komponen
     private JButton bProcess = new JButton("PROCESS");
     private JButton bBack = new JButton("BACK");
-    private JLabel ljudul = new JLabel("MENU INPUT");
+    private JLabel ljudul = new JLabel("MENU OUTPUT");
     private JTextField tfData = new JTextField();
-    private JScrollPane jSP;
-
-    private String sisi, panjang, lebar, tinggi, jariJari;
-
-    DefaultTableModel model;
-    JTable table;
 
     public MenuProses(){
         initComponent();
@@ -26,33 +20,22 @@ public class MenuProses {
     void initComponent(){
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setSize(450,550);
+        frame.setSize(550,600);
         frame.setDefaultCloseOperation(3);
 
-        //Set Column
-        String[] kolom = {"Sisi","Panjang","Lebar","Tinggi","Jari-jari"};
 
-        //data table ngambil dari MenuInput
-        //Initializing JTable
-        model = new DefaultTableModel(kolom,0);
-        table = new JTable(model); //masih menggunakan data statis
-
-        jSP = new JScrollPane(table);
 
         //menambahkan koponen kedalam frame
         frame.add(ljudul);
         frame.add(bProcess);
         frame.add(bBack);
         frame.add(tfData);
-        frame.add(jSP);
+
 
         //mengatur letak komponen
-        ljudul.setBounds(100,10,100,20);
-        bProcess.setBounds(140,60,90,20);
-        bBack.setBounds(185,390,90,20);
-        jSP.setBounds(5,90,280,300);
-
-        jSP.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        ljudul.setBounds(220,10,100,20);
+        bProcess.setBounds(160,220,200,90);
+        bBack.setBounds(440,530,90,20);
 
         aksiBBack();
         aksiBProcess();
