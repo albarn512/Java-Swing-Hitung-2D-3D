@@ -25,7 +25,7 @@ public class MenuInput {
     JTable table;
 
     //Set Column
-    String[] kolom = {"Sisi","Panjang","Lebar","Tinggi","Jari-jari","Diagonal 1","Diagonal 2"};
+    String[] kolom = {"Panjang","Sisi","Lebar","Tinggi","Jari-jari","Diagonal 1","Diagonal 2"};
 
     public MenuInput(){
         initComponent();
@@ -110,17 +110,17 @@ public class MenuInput {
         jariJari = String.valueOf((Math.random() * range) + min);
         diagonal1 = String.valueOf((Math.random() * range) + min);
         diagonal2 = String.valueOf((Math.random() * range) + min);
-        writeFile(sisi, panjang, lebar, tinggi, jariJari,diagonal1,diagonal2);
+        writeFile(panjang, sisi, lebar, tinggi, jariJari,diagonal1,diagonal2);
 
         String dataTable[][] = tampilTabel();
         table.setModel(new JTable(dataTable, kolom).getModel());
     }
 
-    public void writeFile(String sisi, String panjang, String lebar, String tinggi, String jariJari, String diagonal1, String diagonal2) {
+    public void writeFile(String panjang, String sisi, String lebar, String tinggi, String jariJari, String diagonal1, String diagonal2) {
         try {
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(sisi + " " + panjang + " " + lebar + " " + tinggi + " " + jariJari + " " + diagonal1 + " " + diagonal2 + "\n");
+            bufferedWriter.write(panjang + " " + sisi + " " + lebar + " " + tinggi + " " + jariJari + " " + diagonal1 + " " + diagonal2 + "\n");
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
