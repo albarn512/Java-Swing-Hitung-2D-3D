@@ -9,21 +9,13 @@ public class TigaDimensi {
         getBanyakData();
         getData();
         hitungVolume();
+        System.out.println();
+        hitungLuasPermukaan();
     }
 
     void hitungVolume(){
 
         String data[][] = getData();
-
-        /*
-        panjang = Double.parseDouble(data[i][0]);
-        sisi = Double.parseDouble(data[i][1]);
-        lebar = Double.parseDouble(data[i][2]);
-        tinggi = Double.parseDouble(data[i][3]);
-        jariJari = Double.parseDouble(data[i][4]);
-        diagonal1 = Double.parseDouble(data[i][5]);
-        diagonal2 = Double.parseDouble(data[i][6]);
-        */
 
         Thread threadTabung = new Thread(new Runnable() {
             @Override
@@ -98,63 +90,196 @@ public class TigaDimensi {
         });
 
         threadBalok.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadBola.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadKerucut.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadKubus.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadLimasSegiEmpat.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadLimasSegiTiga.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadPrismaSegitiga.start();
+        threadTabung.start();
+
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        threadTabung.start();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
     }
+    
+    void hitungLuasPermukaan(){
+        String data[][] = getData();
 
+        Thread threadLTabung = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasTabung(Double.parseDouble(data[i][4]), Double.parseDouble(data[i][3]));
+                }
+            }
+        });
+
+        Thread threadLBalok = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasBalok(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]), Double.parseDouble(data[i][2]));
+                }
+            }
+        });
+
+        Thread threadLKubus = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasKubus(Double.parseDouble(data[i][1]));
+                }
+            }
+        });
+
+        Thread threadLKerucut = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasKerucut(Double.parseDouble(data[i][4]), Double.parseDouble(data[i][1]));
+                }
+            }
+        });
+
+        Thread threadLLimasSegiEmpat = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasLimasSegi4(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                }
+            }
+        });
+
+        Thread threadLLimasSegiTiga = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasLimasSegi3(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                }
+            }
+        });
+
+        Thread threadLPrismaSegitiga = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasPrismaSegitiga(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                }
+            }
+        });
+
+        Thread threadLBola = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<getBanyakData(); i++) {
+                    luasBola(Double.parseDouble(data[i][4]));
+                }
+            }
+        });
+
+        threadLBalok.start();
+        threadLBola.start();
+        threadLKerucut.start();
+        threadLKubus.start();
+        threadLLimasSegiEmpat.start();
+        threadLPrismaSegitiga.start();
+        threadLTabung.start();
+        threadLLimasSegiTiga.start();
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public int getBanyakData() {
         int a = 0;
 
@@ -196,14 +321,14 @@ public class TigaDimensi {
         }
         return null;
     }
-
+    //============ START OF MENGHITUNG VOLUME BANGUN RUANG ==================
     public synchronized void volumeBalok(double panjang, double tinggi, double lebar){
         double volume =panjang*tinggi*lebar;
         System.out.println("Volume Balok : " + volume);
     }
 
-    public synchronized void volumeTabung(double sisi, double tinggi){
-        double volume = sisi*tinggi*Math.PI;
+    public synchronized void volumeTabung(double jariJari, double tinggi){
+        double volume = jariJari*tinggi*Math.PI;
         System.out.println("Volume Tabung : " + volume);
     }
 
@@ -236,4 +361,50 @@ public class TigaDimensi {
         double volume = Math.PI*jariJari*jariJari*jariJari*4/3;
         System.out.println("Volume Bola : " + volume);
     }
+
+//============ END OF MENGHITUNG VOLUME BANGUN RUANG ==================
+
+//============ START OF MENGHITUNG LUAS PERMUKAAN ======================
+    public synchronized void luasBalok(double panjang, double tinggi, double lebar){
+    double luas =2*(panjang*lebar + panjang*tinggi + lebar*tinggi);
+    System.out.println("Luas Permukaan Balok : " + luas);
+}
+
+    public synchronized void luasTabung(double jariJari, double tinggi){
+        double luas = 2*Math.PI*jariJari*(tinggi*jariJari);
+        System.out.println("Luas Permukaan Tabung : " + luas);
+    }
+
+    public synchronized void luasKerucut(double jariJari, double sisi){
+        double luas = Math.PI*jariJari*(jariJari*sisi);
+        System.out.println("Volume Kerucut : " + luas);
+    }
+
+    public synchronized void luasKubus (double sisi) {
+        double luas = 6*sisi*sisi;
+        System.out.println("Volume Kubus : " + luas);
+    }
+
+    public synchronized void luasLimasSegi4(double panjang, double lebar, double tinggi){
+        double tselimut =Math.sqrt(Math.pow(panjang,2)+Math.pow(tinggi,2));  //Rumus pitagoras untuk mencari sisi miring
+        double luas = (panjang * lebar) + (2*0.5*panjang*tselimut) + (2*0.5*lebar*tselimut);
+        System.out.println("Volume Limas Segi Empat : " + luas);
+    }
+
+    public synchronized void luasLimasSegi3(double panjang, double lebar, double tinggi){
+        double luas = 0.5*panjang*tinggi+(3*0.5*panjang*tinggi);
+        System.out.println("Volume Limas Segi Tiga : " + luas);
+    }
+
+    public synchronized void luasPrismaSegitiga(double panjang, double lebar, double tinggi){
+        double luas = (2*panjang*lebar/2*tinggi) +(3*tinggi*Math.sqrt(Math.pow(panjang,2)+Math.pow(lebar,2)));
+        System.out.println("Volume Prisma Segitiga : " + luas);
+    }
+
+    public synchronized void luasBola(double jariJari){
+        double luas = Math.PI*Math.pow(jariJari,2)*4;
+        System.out.println("Volume Bola : " + luas);
+    }
+
+//============== END OF MENGHITUNG LUAS PERMUKAAN ===================
 }

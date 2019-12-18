@@ -10,18 +10,13 @@ public class DuaDimensi {
         getBanyakData();
         getData();
         hitungLuas();
+        System.out.println();
+        hitungKeliling();
     }
 
     void hitungLuas(){
 
-        String data[][] = getData();
-//                panjang = Double.parseDouble(data[i][0]);
-//                sisi = Double.parseDouble(data[i][1]);
-//                lebar = Double.parseDouble(data[i][2]);
-//                tinggi = Double.parseDouble(data[i][3]);
-//                jariJari = Double.parseDouble(data[i][4]);
-//                diagonal1 = Double.parseDouble(data[i][5]);
-//                diagonal2 = Double.parseDouble(data[i][6]);
+        String data[][] = getData(); // mengambil data
 
             Thread threadPersegi = new Thread(new Runnable() {
                 @Override
@@ -96,61 +91,202 @@ public class DuaDimensi {
             });
 
         threadPersegi.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadPersegiPanjang.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadSegitiga.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadBelahKetupat.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadJajarGenjang.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadLayang.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadLingkaran.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         threadTrapesium.start();
+
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+    void hitungKeliling(){
+        String data[][] = getData(); // mengambil data
+
+        Thread threadKPersegi = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0;i<getBanyakData();i++) {
+                    kelilingPersegi(Double.parseDouble(data[i][1]));
+                    //kode diatas untuk memasukkan nilai sisi
+                }
+            }
+        });
+
+        Thread threadKPersegiPanjang = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingPersegiPanjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]));
+                    //kode diatas untuk memasukkan nilai panjang dan lebar
+                }
+            }
+        });
+
+        Thread threadKSegitiga = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingSegitiga(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]));
+                    //kode diatas untuk memasukkan nilai alas dan tinggi
+                }
+            }
+        });
+
+        Thread threadKLayang = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingLayang(Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]));
+                    //kode diatas untuk memasukkan nilai diagonal 1 dan diagonal 2
+                }
+            }
+        });
+
+        Thread threadKBelahKetupat = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingBelahKetupat(Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]));
+                    //kode diatas untuk memasukkan nilai diagonal 1 dan diagonal 2
+                }
+            }
+        });
+
+        Thread threadKJajarGenjang = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingJajarGenjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][5]));
+                    //kode diatas untuk memasukkan nilai panjang dan sisi samping
+                }
+            }
+        });
+
+        Thread threadKLingkaran = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingLingkaran(Double.parseDouble(data[i][4]));
+                    //kode diatas untuk memasukkan nilai jari jari
+                }
+            }
+        });
+
+        Thread threadKTrapesium = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0; i<getBanyakData(); i++) {
+                    kelilingTrapesium(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][5]), Double.parseDouble(data[i][2]));
+                    //kode diatas untuk memasukkan nilai alas, sisi miring dan atap
+                }
+            }
+        });
+
+        threadKPersegi.start();         //memulai thread Keliling Persegi
+        threadKPersegiPanjang.start();  //memulai thread Keliling Persegi Panjang
+        threadKSegitiga.start();        //memulai thread Keliling Segitiga
+        threadKBelahKetupat.start();    //memulai thread Keliling Belah Ketupat
+        threadKJajarGenjang.start();    //memulai thread Keliling Jajar Genjang
+        threadKLayang.start();          //memulai thread Keliling Layangan
+        threadKLingkaran.start();       //memulai thread Keliling Lingkaran
+        threadKTrapesium.start();       //memulai thread Keliling Trapesium
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getBanyakData() {
@@ -158,13 +294,13 @@ public class DuaDimensi {
 
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                String data = scanner.nextLine();
-                a++;
+            while (scanner.hasNextLine()) {        // melakukan pengecekan pada file, jika ada baris baru maka
+                String data = scanner.nextLine();  // data akan berisi scan dari file
+                a++;                               // lalu nilai a akan bertambah
             }
             scanner.close();
             return a;
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {     //sebuah exception jika file tidak ada
             e.printStackTrace();
         }
         return 0;
@@ -175,25 +311,26 @@ public class DuaDimensi {
         String data[][] = new String[getBanyakData()][7];
         Scanner scanner = null;
         try {
-            scanner = new Scanner(file);
+            scanner = new Scanner(file);  //memindai file yang bernama table.txt
             while (scanner.hasNext()) {
-                data[i][0] = String.valueOf(scanner.next());
-                data[i][1] = String.valueOf(scanner.next());
-                data[i][2] = String.valueOf(scanner.next());
-                data[i][3] = String.valueOf(scanner.next());
-                data[i][4] = String.valueOf(scanner.next());
-                data[i][5] = String.valueOf(scanner.next());
-                data[i][6] = String.valueOf(scanner.next());
+                data[i][0] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][1] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][2] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][3] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][4] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][5] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][6] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
 
                 i++;
             }
             scanner.close();
             return data;
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {     //sebuah exception jika file tidak ada
             e.printStackTrace();
         }
         return null;
     }
+//===================== START OF MENGHITUNG LUAS BANGUN DATAR ===================
 
     public synchronized void luasLayang(double diagonal1, double diagonal2){
         double luas = diagonal1 * diagonal2;
@@ -202,7 +339,7 @@ public class DuaDimensi {
 
     public synchronized void luasPersegi(double sisi){
         double luas = sisi*sisi;
-        System.out.println("Luas Peregi : " + luas);
+        System.out.println("Luas Persegi : " + luas);
     }
 
     public synchronized void luasBelahKetupat(double diagonal1, double diagonal2){
@@ -234,5 +371,52 @@ public class DuaDimensi {
         double luas = alas*tinggi/2;
         System.out.println("Luas Segitiga : " + luas);
     }
+//============== END OF MENGHITUNG LUAS BANGUN DATAR ===================
 
+//============== START OF MENGHITUNG KELILING BANGUN DATAR ===============
+
+    public synchronized void kelilingSegitiga(double alas, double tinggi){
+        double sisi = Math.sqrt(Math.pow(alas,2)+Math.pow(tinggi,2));  //Rumus pitagoras untuk mencari sisi miring
+        double keliling = alas+sisi+sisi;
+        System.out.println("Keliling Segitiga : " + keliling);
+    }
+
+    public synchronized void kelilingLayang(double diagonal1, double diagonal2){
+        double sisi = Math.sqrt(Math.pow(diagonal1/2,2)+Math.pow(diagonal2/2,2)); //Rumus pitagoras untuk mencari sisi miring
+        double keliling = sisi*4;
+        System.out.println("Keliling Layang Layang : " + keliling);
+    }
+
+    public synchronized void kelilingPersegi(double sisi){
+        double keliling = sisi*4;
+        System.out.println("Keliling Peregi : " + keliling);
+    }
+
+    public synchronized void kelilingBelahKetupat(double diagonal1, double diagonal2){
+        double sisi = Math.sqrt(Math.pow(diagonal1/2,2)+Math.pow(diagonal2/2,2)); //Rumus pitagoras untuk mencari sisi miring
+        double keliling = sisi*4;
+        System.out.println("Keliling Belah Ketupat : " + keliling);
+    }
+
+    public synchronized void kelilingJajarGenjang(double panjang, double diagonal1){
+        double keliling = 2*panjang + 2*diagonal1;
+        System.out.println("Keliling Jajar Genjang : " + keliling);
+    }
+
+    public synchronized void kelilingPersegiPanjang(double panjang, double lebar){
+        double keliling = 2*panjang + 2*lebar;
+        System.out.println("Keliling Persegi Panjang : " + keliling);
+    }
+
+    public synchronized void kelilingLingkaran(double jariJari){
+        double keliling = 2*jariJari*3.14;
+        System.out.println("Keliling Lingkaran : " + keliling);
+    }
+
+    public synchronized void kelilingTrapesium(double alas, double diagonal1, double atap){
+        double keliling =alas+atap+2*diagonal1;
+        System.out.println("Luas Trapesium : " + keliling);
+    }
+
+//============== END OF MENGHITUNG KELILING BANGUN DATAR =======================
 }
