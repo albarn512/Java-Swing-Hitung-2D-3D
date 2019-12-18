@@ -21,7 +21,8 @@ public class TigaDimensi {
             @Override
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
-                    volumeTabung(Double.parseDouble(data[i][1]), Double.parseDouble(data[i][3]));
+                    volumeTabung(Double.parseDouble(data[i][4]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data jari jari dan tinggi
                 }
             }
         });
@@ -31,6 +32,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumeBalok(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]), Double.parseDouble(data[i][2]));
+                    //kode di atas untuk mengirim data panjang, tinggi, lebar
                 }
             }
         });
@@ -40,6 +42,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumeKubus(Double.parseDouble(data[i][1]));
+                    //kode di atas untuk mengirim data sisi
                 }
             }
         });
@@ -49,6 +52,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumeKerucut(Double.parseDouble(data[i][4]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data jari jari dan tinggi
                 }
             }
         });
@@ -58,6 +62,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumeLimasSegi4(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data panjang, lebar, tinggi
                 }
             }
         });
@@ -67,6 +72,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumeLimasSegi3(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data panjang, lebar(digunakan sebagai tinggi alas segitia),tinggi
                 }
             }
         });
@@ -76,6 +82,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumePrismaSegitiga(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data panjang, lebar(digunakan sebagai tinggi alas segitia), tinggi
                 }
             }
         });
@@ -85,10 +92,12 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     volumeBola(Double.parseDouble(data[i][4]));
+                    //kode di atas untuk mengirim data jari jari
                 }
             }
         });
 
+//==========MEMULAI THREAD=================
         threadBalok.start();
         threadBola.start();
         threadKerucut.start();
@@ -97,51 +106,52 @@ public class TigaDimensi {
         threadLimasSegiTiga.start();
         threadPrismaSegitiga.start();
         threadTabung.start();
+//========================================
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -149,13 +159,14 @@ public class TigaDimensi {
     }
     
     void hitungLuasPermukaan(){
-        String data[][] = getData();
+        String data[][] = getData();  // mengambil data
 
         Thread threadLTabung = new Thread(new Runnable() {
             @Override
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasTabung(Double.parseDouble(data[i][4]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data jari jari dan tinggi
                 }
             }
         });
@@ -165,6 +176,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasBalok(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]), Double.parseDouble(data[i][2]));
+                    //kode di atas untuk mengirim data panjang, tinggi, lebar
                 }
             }
         });
@@ -174,6 +186,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasKubus(Double.parseDouble(data[i][1]));
+                    //kode di atas untuk mengirim data sisi
                 }
             }
         });
@@ -183,6 +196,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasKerucut(Double.parseDouble(data[i][4]), Double.parseDouble(data[i][1]));
+                    //kode di atas untuk mengirim data jari jari dan tinggi
                 }
             }
         });
@@ -192,6 +206,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasLimasSegi4(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data panjang, lebar, tinggi
                 }
             }
         });
@@ -201,6 +216,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasLimasSegi3(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data panjang, lebar(digunakan sebagai tinggi alas segitia), dan tinggi
                 }
             }
         });
@@ -210,6 +226,7 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasPrismaSegitiga(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]), Double.parseDouble(data[i][3]));
+                    //kode di atas untuk mengirim data panjang, lebar (digunakan sebagai tinggi alas segitia), dan tinggi
                 }
             }
         });
@@ -219,10 +236,11 @@ public class TigaDimensi {
             public void run() {
                 for(int i=0; i<getBanyakData(); i++) {
                     luasBola(Double.parseDouble(data[i][4]));
+                    //kode di atas untuk mengirim data jari jari
                 }
             }
         });
-
+//==================MEMULAI THREAD=======
         threadLBalok.start();
         threadLBola.start();
         threadLKerucut.start();
@@ -231,51 +249,51 @@ public class TigaDimensi {
         threadLPrismaSegitiga.start();
         threadLTabung.start();
         threadLLimasSegiTiga.start();
-
+//=========================================
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -285,13 +303,13 @@ public class TigaDimensi {
 
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                String data = scanner.nextLine();
-                a++;
+            while (scanner.hasNextLine()) {        // melakukan pengecekan pada file, jika ada baris baru maka
+                String data = scanner.nextLine();  // data akan berisi scan dari file
+                a++;                               // lalu nilai a akan bertambah
             }
             scanner.close();
             return a;
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {         //sebuah exception jika file tidak ada
             e.printStackTrace();
         }
         return 0;
@@ -304,24 +322,24 @@ public class TigaDimensi {
         try {
             scanner = new Scanner(file);
             while (scanner.hasNext()) {
-                data[i][0] = String.valueOf(scanner.next());
-                data[i][1] = String.valueOf(scanner.next());
-                data[i][2] = String.valueOf(scanner.next());
-                data[i][3] = String.valueOf(scanner.next());
-                data[i][4] = String.valueOf(scanner.next());
-                data[i][5] = String.valueOf(scanner.next());
-                data[i][6] = String.valueOf(scanner.next());
+                data[i][0] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][1] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][2] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][3] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][4] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][5] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
+                data[i][6] = String.valueOf(scanner.next());//Mengambil data dari file lalu memindahkan nya ke data
 
                 i++;
             }
             scanner.close();
             return data;
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {         //sebuah exception jika file tidak ada
             e.printStackTrace();
         }
         return null;
     }
-    //============ START OF MENGHITUNG VOLUME BANGUN RUANG ==================
+    //===================== START OF MENGHITUNG VOLUME BANGUN RUANG ======================
     public synchronized void volumeBalok(double panjang, double tinggi, double lebar){
         double volume =panjang*tinggi*lebar;
         System.out.println("Volume Balok : " + volume);
@@ -362,9 +380,9 @@ public class TigaDimensi {
         System.out.println("Volume Bola : " + volume);
     }
 
-//============ END OF MENGHITUNG VOLUME BANGUN RUANG ==================
+//==================== END OF MENGHITUNG VOLUME BANGUN RUANG ============================
 
-//============ START OF MENGHITUNG LUAS PERMUKAAN ======================
+//========================= START OF MENGHITUNG LUAS PERMUKAAN ===============================
     public synchronized void luasBalok(double panjang, double tinggi, double lebar){
     double luas =2*(panjang*lebar + panjang*tinggi + lebar*tinggi);
     System.out.println("Luas Permukaan Balok : " + luas);
@@ -406,5 +424,5 @@ public class TigaDimensi {
         System.out.println("Volume Bola : " + luas);
     }
 
-//============== END OF MENGHITUNG LUAS PERMUKAAN ===================
+//=============================== END OF MENGHITUNG LUAS PERMUKAAN ================================
 }
