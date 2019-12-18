@@ -333,7 +333,7 @@ public class TigaDimensi {
     }
 
     public synchronized void volumeKerucut(double jariJari, double tinggi){
-        double volume = 3.14*jariJari*jariJari*tinggi/3;
+        double volume = Math.PI*jariJari*jariJari*tinggi/3;
         System.out.println("Volume Kerucut : " + volume);
     }
 

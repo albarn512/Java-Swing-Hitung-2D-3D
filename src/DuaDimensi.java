@@ -358,7 +358,7 @@ public class DuaDimensi {
     }
 
     public synchronized void luasLingkaran(double jariJari){
-        double luas = jariJari*jariJari*3.14/2;
+        double luas = jariJari*jariJari*Math.PI/2;
         System.out.println("Luas Lingkaran : " + luas);
     }
 
@@ -409,7 +409,7 @@ public class DuaDimensi {
     }
 
     public synchronized void kelilingLingkaran(double jariJari){
-        double keliling = 2*jariJari*3.14;
+        double keliling = 2*jariJari*Math.PI;
         System.out.println("Keliling Lingkaran : " + keliling);
     }
 
