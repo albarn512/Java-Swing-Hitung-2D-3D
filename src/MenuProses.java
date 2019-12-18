@@ -58,6 +58,10 @@ public class MenuProses {
             public void actionPerformed(ActionEvent e) {
                 //tanpa tabel. cuma munculin pop up. tau multi threading nya dari sout aja.
                 //System.out.println("blablabla");
+
+                DuaDimensi duaDimensi = new DuaDimensi();
+                TigaDimensi tigaDimensi = new TigaDimensi();
+
                 JOptionPane.showMessageDialog(null, "DATA SUDAH TERPROSES");
             }
         });

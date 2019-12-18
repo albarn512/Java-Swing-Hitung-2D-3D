@@ -4,25 +4,155 @@ import java.util.Scanner;
 
 public class DuaDimensi {
 
-    protected double[] sisi, panjang, lebar, tinggi, jariJari,diagonal1, diagonal2;
     private File file = new File("tabel.txt");
+
     public DuaDimensi(){
         getBanyakData();
         getData();
         hitungLuas();
     }
+
     void hitungLuas(){
-        for (int i=0;i<sisi.length;i++) {
-            luasLayang(diagonal1[i], diagonal2[i]);
-            luasPersegi(sisi[i]);
-            luasBelahKetupat(diagonal1[i], diagonal2[i]);
-            luasJajarGenjang(panjang[i], tinggi[i]);
-            luasPersegiPanjang(panjang[i], lebar[i]);
-            luasLingkaran(jariJari[i]);
-            luasTrapesium(panjang[i], tinggi[i], lebar[i]);
-            luasSegitiga(panjang[i], tinggi[i]);
+
+        String data[][] = getData();
+//                panjang = Double.parseDouble(data[i][0]);
+//                sisi = Double.parseDouble(data[i][1]);
+//                lebar = Double.parseDouble(data[i][2]);
+//                tinggi = Double.parseDouble(data[i][3]);
+//                jariJari = Double.parseDouble(data[i][4]);
+//                diagonal1 = Double.parseDouble(data[i][5]);
+//                diagonal2 = Double.parseDouble(data[i][6]);
+
+            Thread threadPersegi = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0;i<getBanyakData();i++) {
+                        luasPersegi(Double.parseDouble(data[i][1]));
+                    }
+                }
+            });
+
+            Thread threadPersegiPanjang = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasPersegiPanjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]));
+                    }
+                }
+            });
+
+            Thread threadSegitiga = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasSegitiga(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]));
+                    }
+                }
+            });
+
+            Thread threadLayang = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasLayang(Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]));
+                    }
+                }
+            });
+
+            Thread threadBelahKetupat = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasBelahKetupat(Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]));
+                    }
+                }
+            });
+
+            Thread threadJajarGenjang = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasJajarGenjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]));
+                    }
+                }
+            });
+
+            Thread threadLingkaran = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasLingkaran(Double.parseDouble(data[i][4]));
+                    }
+                }
+            });
+
+            Thread threadTrapesium = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i=0; i<getBanyakData(); i++) {
+                        luasTrapesium(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]), Double.parseDouble(data[i][2]));
+                    }
+                }
+            });
+
+        threadPersegi.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        threadPersegiPanjang.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        threadSegitiga.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        threadBelahKetupat.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        threadJajarGenjang.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        threadLayang.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        threadLingkaran.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        threadTrapesium.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
+
     public int getBanyakData() {
         int a = 0;
 
@@ -40,7 +170,7 @@ public class DuaDimensi {
         return 0;
     }
 
-    void getData(){
+    public String[][] getData(){
         int i = 0;
         String data[][] = new String[getBanyakData()][7];
         Scanner scanner = null;
@@ -55,54 +185,54 @@ public class DuaDimensi {
                 data[i][5] = String.valueOf(scanner.next());
                 data[i][6] = String.valueOf(scanner.next());
 
-                panjang[i] = Double.parseDouble(data[i][0]);
-                sisi[i] = Double.parseDouble(data[i][1]);
-                lebar[i] = Double.parseDouble(data[i][2]);
-                tinggi[i] = Double.parseDouble(data[i][3]);
-                jariJari[i] = Double.parseDouble(data[i][4]);
-                diagonal1[i] = Double.parseDouble(data[i][5]);
-                diagonal2[i] = Double.parseDouble(data[i][6]);
-
                 i++;
             }
             scanner.close();
+            return data;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public double luasLayang(double diagonal1, double diagonal2){
+    public synchronized void luasLayang(double diagonal1, double diagonal2){
         double luas = diagonal1 * diagonal2;
-        return luas;
+        System.out.println("Luas Layang Layang : " + luas);
     }
-    public double luasPersegi(double sisi){
+
+    public synchronized void luasPersegi(double sisi){
         double luas = sisi*sisi;
-        System.out.println(luas);
-        return  luas;
+        System.out.println("Luas Peregi : " + luas);
     }
-    public double luasBelahKetupat(double diagonal1, double diagonal2){
+
+    public synchronized void luasBelahKetupat(double diagonal1, double diagonal2){
         double luas = diagonal1 * diagonal2/2;
-        return luas;
+        System.out.println("Luas Belah Ketupat : " + luas);
     }
-    public double luasJajarGenjang(double panjang, double tinggi){
+
+    public synchronized void luasJajarGenjang(double panjang, double tinggi){
         double luas = panjang * tinggi;
-        return luas;
+        System.out.println("Luas Jajar Genjang : " + luas);
     }
-    public double luasPersegiPanjang(double panjang, double lebar){
+
+    public synchronized void luasPersegiPanjang(double panjang, double lebar){
         double luas = panjang*lebar;
-        return  luas;
+        System.out.println("Luas Persegi Panjang : " + luas);
     }
-    public double luasLingkaran(double jariJari){
+
+    public synchronized void luasLingkaran(double jariJari){
         double luas = jariJari*jariJari*3.14/2;
-        return luas;
+        System.out.println("Luas Lingkaran : " + luas);
     }
-    public double luasTrapesium(double alas, double tinggi, double atap){
+
+    public synchronized void luasTrapesium(double alas, double tinggi, double atap){
         double luas =(alas+atap)*tinggi/2;
-        return luas;
+        System.out.println("Luas Trapesium : " + luas);
     }
-    public double luasSegitiga(double alas, double tinggi){
+
+    public synchronized void luasSegitiga(double alas, double tinggi){
         double luas = alas*tinggi/2;
-        return luas;
+        System.out.println("Luas Segitiga : " + luas);
     }
 
 }

@@ -27,7 +27,7 @@ public class MenuUtama {
 
         //menambahkan koponen kedalam frame
         frame.add(ljudul);
-            ljudul.setFont(new Font("Serif",Font.BOLD,20));
+        ljudul.setFont(new Font("Serif",Font.BOLD,20));
         frame.add(bInput);
         frame.add(bProses);
         frame.add(bOutput);
