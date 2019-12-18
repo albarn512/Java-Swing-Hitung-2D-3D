@@ -23,6 +23,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0;i<getBanyakData();i++) {
                         luasPersegi(Double.parseDouble(data[i][1]));
+                        //kode diatas untuk memasukkan nilai sisi
                     }
                 }
             });
@@ -32,6 +33,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasPersegiPanjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][2]));
+                        //kode diatas untuk memasukkan nilai panjang dan lebar
                     }
                 }
             });
@@ -41,6 +43,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasSegitiga(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]));
+                        //kode diatas untuk memasukkan nilai panjang(sebagai alas) dan tinggi
                     }
                 }
             });
@@ -50,6 +53,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasLayang(Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]));
+                        //kode diatas untuk memasukkan nilai diagonal 1 dan diagonal 2
                     }
                 }
             });
@@ -59,6 +63,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasBelahKetupat(Double.parseDouble(data[i][5]), Double.parseDouble(data[i][6]));
+                        //kode diatas untuk memasukkan nilai diagonal 1 dan diagonal 2
                     }
                 }
             });
@@ -68,6 +73,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasJajarGenjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]));
+                        //kode diatas untuk memasukkan nilai panjang dan tinggi
                     }
                 }
             });
@@ -77,6 +83,7 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasLingkaran(Double.parseDouble(data[i][4]));
+                        //kode diatas untuk memasukkan nilai jari jari
                     }
                 }
             });
@@ -86,10 +93,12 @@ public class DuaDimensi {
                 public void run() {
                     for (int i=0; i<getBanyakData(); i++) {
                         luasTrapesium(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][3]), Double.parseDouble(data[i][2]));
+                        //kode diatas untuk memasukkan nilai panjang(alas),lebar(atap) dan tinggi
                     }
                 }
             });
 
+//======== MEMULAI THREAD ==============
         threadPersegi.start();
         threadPersegiPanjang.start();
         threadSegitiga.start();
@@ -98,51 +107,52 @@ public class DuaDimensi {
         threadLayang.start();
         threadLingkaran.start();
         threadTrapesium.start();
+//======================================
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(500);          //membuat program berhenti sejenak agar multi threading terlihat
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -206,7 +216,7 @@ public class DuaDimensi {
             public void run() {
                 for (int i=0; i<getBanyakData(); i++) {
                     kelilingJajarGenjang(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][5]));
-                    //kode diatas untuk memasukkan nilai panjang dan sisi samping
+                    //kode diatas untuk memasukkan nilai panjang dan sisi samping (menggunakan diagonal 1)
                 }
             }
         });
@@ -226,7 +236,7 @@ public class DuaDimensi {
             public void run() {
                 for (int i=0; i<getBanyakData(); i++) {
                     kelilingTrapesium(Double.parseDouble(data[i][0]), Double.parseDouble(data[i][5]), Double.parseDouble(data[i][2]));
-                    //kode diatas untuk memasukkan nilai alas, sisi miring dan atap
+                    //kode diatas untuk memasukkan nilai panjang(alas),lebar(atap)dan sisi miring(menggunakan diagonal 1)
                 }
             }
         });
